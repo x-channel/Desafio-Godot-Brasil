@@ -1,0 +1,52 @@
+\documentclass{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=true, urlcolor=blue}
+
+\title{Órgão/Sintetizador}
+\subtitle{Desafio Input/Output}
+\author{Cairé Carneiro Rocha}
+
+\date{19 Janeiro 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Introdução}
+
+
+O piano é um instrumento musical que sofre de um transtorno de personalidade. Alguns dizem que ele é um instrumento de percussão, outros dizem que é um instrumento de corda, o que não importa para o desafio, pois é programar apenas uma oitava.
+
+Para quem não entende nada de música, há pianos com 5, 6 ou 7 oitavas. Uma oitava do piano é um conjunto de 13 teclas que compreende todos os 12 tons da música tonal ocidental mais uma tecla que se repete. As teclas brancas são os tons e as teclas pretas são os semitons.
+
+O \textit{Input/Output}, ou para os mais íntimos I/O é qualquer entrada e saída de dados fornecidos por fora do programa, a grande vantagem de uma \textit{game engine} é justamente a facilidade do I/O. Apesar de muitas vezes ser tratado somente como entrada de teclado e atuação de um objeto em jogo, o HDD também é chamado de I/O, assim como no som e a rede que exigem a preempção/pausa do programa.
+
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=250pt]{Piano.png}
+\caption{Toca Ai!}
+\end{figure}
+
+\pagebreak
+
+\section{Desafio Iniciante}
+
+Programar um teclado onde cada tecla executa um som, não necessariamente o som do piano, mas é fortemente recomendado, o anexo [1] possui os sons de Lá3 a Lá4. Tanto pode ser em 3d, quanto em 2d.
+
+\section{Desafio Intermediário}
+
+Desafio intermediário: Cada tecla vai executar uma nota, mas essas notas serão geradas pelo programa. Cada semitom é separado por $ 2^{1/12} $, dado que Lá 3 é 440hz, Lá 3 \# é $ 440*2^{2/12} $ hz, Si 3 é $ 440*2^{3/12} $ hz, Dó 4 é $ 440*2^{4/12} $ hz, etc. Você pode usar o método sin() e a constante PI que estão disponíveis na documentação oficial [2]. Há diversas funções que você pode usar para gerar a onda, porém recomendo $ F(x,y) = sin((x/mixrate)*PI*440*2^{y/12}) $, tal quê X é a posição em função do tempo, Y é a nota escolhida e mixrate é o parametro escolhido dentro do AudioStreamGenerator [3].
+
+\section{Anexo}
+[1] - Anexo do \href{https://github.com/x-channel/Desafio-Godot-Brasil/upload/main/Anexos/Samples}{Github com os 13 sons}, nesse repositório: \url{www.github.com/x-channel/Desafio-Godot-Brasil}
+
+[2] - Link da página \href{https://docs.godotengine.org/en/stable/getting_started/scripting/gdscript/gdscript_basics.html}{@GDScript}, disponível no próprio site da Godot. \url{https://docs.godotengine.org/en/stable/}
+
+[3] - Link da página \href{https://docs.godotengine.org/en/stable/classes/class_audiostreamgenerator.html}{AudioStreamGenerator}, disponível no próprio site da Godot: \url{https://docs.godotengine.org/en/stable/}
+
+\end{document}
